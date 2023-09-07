@@ -4,7 +4,7 @@ import { Backdrop, StyledModal } from './Modal.styled';
 
 const mmodalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ image, onClose, isModalOpen }) => {
+export const Modal = ({ image, onClose }) => {
   // Вішаємо/прибираємо случач, коли відкриваємо/закриваємо модалку по Esc
   useEffect(() => {
     const handleModalCloseByEsc = evt => {
@@ -27,10 +27,7 @@ export const Modal = ({ image, onClose, isModalOpen }) => {
   };
 
   return createPortal(
-    <Backdrop
-      onClick={handleModalCloseByClickOnBackdrop}
-      isModalOpen={isModalOpen}
-    >
+    <Backdrop onClick={handleModalCloseByClickOnBackdrop}>
       <StyledModal>
         <img src={image.largeImageURL} alt={image.tags} />
       </StyledModal>
